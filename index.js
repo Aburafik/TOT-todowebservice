@@ -7,19 +7,19 @@ dotenv.config()
 const app = express();
 app.use(express.json());
 
-const port = 3000;
+const port = 3000||process.env.PORT;
 
 const db= process.env.DB_URLkey
 
 
-// mongoose.connect('mongodb://localhost/todo_db', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// }).then(() => {
-//   console.log('Connected to MongoDB');
-// }).catch((err) => {
-//   console.log(err);
-// });
+mongoose.connect(db, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}).then(() => {
+  console.log('Connected to MongoDB');
+}).catch((err) => {
+  console.log(err);
+});
 
 
 
@@ -138,18 +138,18 @@ if(todoModel){
 
 })
 
-mongoose.connect(db).then(()=>{
+// mongoose.connect(db).then(()=>{
 
-    app.listen(port,()=>{
-        console.log(`server is up and running 🍀🌿🌾 at http://localhost:${port}`)
-    })
-  }).catch(erro=>{
-console.log(erro)
-  })
-
-
+//     app.listen(port,()=>{
+//         console.log(`server is up and running 🍀🌿🌾 at http://localhost:${port}`)
+//     })
+//   }).catch(erro=>{
+// console.log(erro)
+//   })
 
 
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 /// to start the server: npx nodemon start
