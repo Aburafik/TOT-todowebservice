@@ -18,7 +18,7 @@ const todoSchema=Schema({
     },
     status:{
         type:Boolean,
-        required: true,
+        // required: true,
         default:false
     }
 })
