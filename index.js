@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
 ///get all todos
 app.get('/todos:status',async (req,res)=>{
-
+    const {status} = req.params;
 const todoModel = await TodoModel.find({}).where('status').equals(status);
 if(todoModel){
     return res.status(200).json({
