@@ -16,10 +16,10 @@ const todoSchema=Schema({
         type:String,
         required: true
     },
-    
+
     status:{
         type:Boolean,
-        // required: true,
+        required: true,
         default:false
     }
 })
